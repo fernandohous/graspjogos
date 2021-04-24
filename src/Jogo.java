@@ -4,14 +4,13 @@ import java.util.List;
 public class Jogo implements Item {
     private double preco;
     private String titulo;
-    private ArrayList relacionados;
+    private List<Item> relacionados;
 
-    public Jogo(double preco, String titulo) {
+    public Jogo(String titulo, double preco) {
         this.preco = preco;
         this.titulo = titulo;
         this.relacionados = new ArrayList<>();
     }
-
 
     @Override
     public double preco() {
@@ -24,7 +23,7 @@ public class Jogo implements Item {
     }
 
     @Override
-    public ArrayList relacionados() {
+    public List<Item> relacionados() {
         return this.relacionados;
     }
 

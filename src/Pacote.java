@@ -1,11 +1,11 @@
 import java.util.ArrayList;
-
+import java.util.List;
 
 public class Pacote implements Item {
 
     private String titulo;
     private double desconto;
-    private ArrayList itens;
+    private List<Item> itens;
 
     public Pacote(String titulo, double desconto) {
         this.titulo = titulo;
@@ -15,17 +15,25 @@ public class Pacote implements Item {
 
     @Override
     public double preco() {
-        return 0;
+        double preco = 0;
+
+        for (Item item: this.itens) {
+            preco += item.preco();
+        }
+
+        preco = preco - (preco * this.desconto / 100);
+
+        return preco;
     }
 
     @Override
     public String getTitulo() {
-        return null;
+        return this.titulo;
     }
 
     @Override
-    public ArrayList relacionados() {
-        return null;
+    public List<Item> relacionados() {
+        return this.itens;
     }
 
     public void adicionarItem(Item item){
