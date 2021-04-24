@@ -1,15 +1,21 @@
 import java.util.ArrayList;
+import java.util.List;
 
-public class ItemRepositorio implements Repositorio {
+public class ItemRepositorio implements Repositorio<Item> {
 
-    private ArrayList itens;
+    private List<Item> itens;
 
     public ItemRepositorio() {
         this.itens = new ArrayList<>();
     }
 
     @Override
-    public void adicionarRegistro(T registro) {
+    public void adiciona(Item registro) {
+        this.itens.add(registro);
+    }
 
+    @Override
+    public List<Item> lista() {
+        return this.itens;
     }
 }

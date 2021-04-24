@@ -20,7 +20,6 @@ public class Pacote implements Item {
         for (Item item: this.itens) {
             preco += item.preco();
         }
-
         preco = preco - (preco * this.desconto / 100);
 
         return preco;
