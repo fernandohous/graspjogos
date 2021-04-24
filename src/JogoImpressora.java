@@ -5,17 +5,16 @@ public class JogoImpressora implements Impressora {
         this.jogo = jogo;
     }
 
-
     @Override
     public void imprimir() {
-        System.out.println("\nTitulo:"
-                        +jogo.getTitulo()
-                        +"\nValor: R$:"
-                        +jogo.preco()
-                        +"\nRelacionados: "
-                        +jogo.relacionados()
-        ); //Aqui ta vindo o array tem que vir os titulos eu acho
+        System.out.println("Jogo: " + this.jogo.getTitulo());
+        System.out.println("Valor: R$ " + this.jogo.preco());
+
+        System.out.println("Relacionados:");
+        RelacionadoImpressora relacionado;
+        for (Item item: this.jogo.relacionados()) {
+            relacionado = new RelacionadoImpressora(item);
+            relacionado.imprimir();
+        }
     }
-
-
 }

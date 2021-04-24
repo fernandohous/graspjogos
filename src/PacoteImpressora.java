@@ -7,12 +7,19 @@ public class PacoteImpressora implements Impressora {
 
     @Override
     public void imprimir() {
-        System.out.println("\nTitulo:"
-                +pacote.getTitulo()
-                +"\nValor: R$:"
-                +pacote.preco()
-                +"\nRelacionados: "
-                +pacote.relacionados()
-        ); //Aqui ta vindo o array tem que vir os titulos eu acho
+        System.out.println(this.pacote.getTitulo());
+
+        String valor = "Valor: R$ " + this.pacote.preco();
+        if (this.pacote.getDesconto() > 0) {
+            valor += " (-" + this.pacote.getDesconto() + "%)";
+        }
+        System.out.println(valor);
+
+        System.out.println("Conteúdo:");
+        RelacionadoImpressora relacionado;
+        for (Item item: this.pacote.relacionados()) {
+            relacionado = new RelacionadoImpressora(item);
+            relacionado.imprimir();
+        }
     }
 }

@@ -38,4 +38,8 @@ public class Pacote implements Item {
     public void adicionarItem(Item item){
         this.itens.add(item);
     }
+
+    public double getDesconto() {
+        return this.desconto;
+    }
 }

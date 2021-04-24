@@ -7,12 +7,14 @@ public class ExpansaoImpressora implements Impressora {
 
     @Override
     public void imprimir() {
-        System.out.println("\nTitulo:"
-                +expansao.getTitulo()
-                +"\nValor: R$:"
-                +expansao.preco()
-                +"\nRelacionados: "
-                +expansao.relacionados()
-        ); //Aqui ta vindo o array tem que vir os titulos eu acho
+        System.out.println("Expansão: " + this.expansao.getTitulo());
+        System.out.println("Valor: R$ " + this.expansao.preco());
+
+        System.out.println("Relacionados:");
+        RelacionadoImpressora relacionado;
+        for (Item item: this.expansao.relacionados()) {
+            relacionado = new RelacionadoImpressora(item);
+            relacionado.imprimir();
+        }
     }
 }

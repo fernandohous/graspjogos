@@ -22,7 +22,7 @@ public class Expansao implements Item {
 
     @Override
     public String getTitulo() {
-        return this.titulo;
+        return this.jogo.getTitulo() + " - " + this.titulo;
     }
 
     @Override
@@ -31,7 +31,7 @@ public class Expansao implements Item {
         relacionados.add(this.jogo);
 
         for (Item item: this.jogo.relacionados()) {
-            if (item.getTitulo() != this.titulo) {
+            if (! item.getTitulo().equals(this.titulo)) {
                 relacionados.add(item);
             }
         }
